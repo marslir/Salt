@@ -1,0 +1,2 @@
+# Salt
+Salt-Stack
