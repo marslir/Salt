@@ -134,12 +134,17 @@ Upgrade             (  1 Dependent package)
   chmod -R 755 salt-master/
   
   5) 安装createrepo
+  yum -y install createrepo
   
-  5) 重启apache服务 并设置服务自启动
+  6) 创建repodata
+  createrepo -p -d -o /var/www/html/salt-master/ /var/www/html/salt-master/
+  createrepo -p -d -o /var/www/html/salt-minion/ /var/www/html/salt-minion/
+  
+  7) 重启apache服务 并设置服务自启动
   systemctl restart httpd
   systemctl enable httpd
   
-  6) 关闭防火墙
+  8) 关闭防火墙
   systemctl stop firewalld
   systemctl disable firewalld
   
@@ -152,10 +157,12 @@ salt-minion：
   2) vi http.repo内容如下
   [salt-minion]
   name=salt-minion
-  baseurl=http://192.168.1.109/salt-minion
+  baseurl=http://192.168.1.111/salt-minion
   enabled=1
   gpgcheck=0
   
   3) 清除yum配置缓存并更新
   yum clean all
   yum makecache
+  
+  4) yum install salt-minion
