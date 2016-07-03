@@ -1,6 +1,6 @@
 salt-master:
   1 操作系统
-    1) OS release: rhel 7.0 x86_64
+    1) OS release: rhel-server-7.2-x86_64
     2) DATE&TIME: Asia/Shanghai
     3) KEYBOARD: English(US)
     4) LANGUAGE SUPPORT: English(United States)
@@ -18,14 +18,14 @@ salt-master:
   HDD: 20 GB
   3 网络配置
   HOSTNAME: salt-master
-  IPADDR: 192.168.1.109
+  IPADDR: 192.168.1.111
   NETMASK: 255.255.255.0
   GATEWAY: 192.168.1.1
   DNS1: 222.222.222.222
   DNS2: 222.222.202.202
 salt-minion:
   1 操作系统
-    1) OS release: rhel 7.0 x86_64
+    1) OS release: rhel-server-7.2-x86_64
     2) DATE&TIME: Asia/Shanghai
     3) KEYBOARD: English(US)
     4) LANGUAGE SUPPORT: English(United States)
@@ -43,7 +43,7 @@ salt-minion:
   HDD: 20 GB
   3 网络配置
   HOSTNAME: salt-minion
-  IPADDR: 192.168.1.110
+  IPADDR: 192.168.1.112
   NETMASK: 255.255.255.0
   GATEWAY: 192.168.1.1
   DNS1: 222.222.222.222
