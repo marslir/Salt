@@ -43,13 +43,55 @@ Salt-Master：
   2) cd /salt-pkgs
   3) wget https://repo.saltstack.com/yum/redhat/salt-repo-latest-1.el7.noarch.rpm
   4) yum install salt-repo-latest-1.el7.noarch.rpm
-  5) yum install --downloadonly --downloaddir=/salt-pkgs salt-master
+  5) vim /etc/yum.repo.d/salt-latest.repo内容如下
+    [salt-latest]
+    name=SaltStack Latest Release Channel for RHEL/Centos 7 
+    baseurl=https://repo.saltstack.com/yum/redhat/7/x86_64/latest
+    failovermethod=priority
+    enabled=1
+    gpgcheck=1
+    gpgkey=file:///etc/pki/rpm-gpg/saltstack-signing-key
+  6) mkdir -p /salt-pkgs/salt-master
+  7) yum install --downloadonly --downloaddir=/salt-pkgs/salt-master salt-master
+  8) mkdir -p /salt-pkgs/salt-minion
+  9) yum install --downloadonly --downloaddir=/salt-pkgs/salt-minion salt-minion
 4 依赖列表
+salt-master:
 ================================================================================
  Package                Arch        Version              Repository        Size
 ================================================================================
 Installing:
  salt-master            noarch      2016.3.1-1.el7       salt-latest      1.4 M
+Installing for dependencies:
+ PyYAML                 x86_64      3.11-1.el7           salt-latest      160 k
+ libyaml                x86_64      0.1.4-11.el7_0       base              55 k
+ python-babel           noarch      0.9.6-8.el7          base             1.4 M
+ python-crypto          x86_64      2.6.1-1.el7          salt-latest      469 k
+ python-futures         noarch      3.0.3-1.el7          salt-latest       26 k
+ python-jinja2          noarch      2.7.2-2.el7          base             515 k
+ python-markupsafe      x86_64      0.11-10.el7          base              25 k
+ python-msgpack         x86_64      0.4.6-1.el7          salt-latest       73 k
+ python-requests        noarch      2.6.0-1.el7_1        base              94 k
+ python-six             noarch      1.9.0-2.el7          base              29 k
+ python-tornado         x86_64      4.2.1-1.el7          salt-latest      636 k
+ python-urllib3         noarch      1.10.2-2.el7_1       base             100 k
+ python-zmq             x86_64      14.7.0-1.el7         salt-latest      482 k
+ salt                   noarch      2016.3.1-1.el7       salt-latest      6.1 M
+ zeromq                 x86_64      4.0.5-4.el7          salt-latest      583 k
+Updating for dependencies:
+ python-chardet         noarch      2.2.1-1.el7_1        base             227 k
+
+Transaction Summary
+================================================================================
+Install  1 Package  (+15 Dependent packages)
+Upgrade             (  1 Dependent package)
+
+salt-minion:
+================================================================================
+ Package                Arch        Version              Repository        Size
+================================================================================
+Installing:
+ salt-minion            noarch      2016.3.1-1.el7       salt-latest       30 k
 Installing for dependencies:
  PyYAML                 x86_64      3.11-1.el7           salt-latest      160 k
  libyaml                x86_64      0.1.4-11.el7_0       base              55 k
@@ -90,6 +132,8 @@ Upgrade             (  1 Dependent package)
   cp -r /salt-pkgs/salt-master /var/www/html
   cd /var/www/html
   chmod -R 755 salt-master/
+  
+  5) 安装createrepo
   
   5) 重启apache服务 并设置服务自启动
   systemctl restart httpd
