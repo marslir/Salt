@@ -1,11 +1,50 @@
-1 操作系统
-rhel 7.0 x86_64
-2 硬件配置
-salt-master：
-  CPU: 2 CORE
+salt-master:
+  1 操作系统
+    1) OS release: rhel 7.0 x86_64
+    2) DATE&TIME: Asia/Shanghai
+    3) KEYBOARD: English(US)
+    4) LANGUAGE SUPPORT: English(United States)
+    5) SOFTWARE SELECTION:
+      -Server with GUI
+        -Hardware Monitoring Utilities
+        -JAVA Platform
+        -Performance Tools
+        -Remote Management for Linux
+        -Compatibility Libraries
+        -Development Tools
+  2 硬件配置
+  CPU: 1 CORE
   MEM: 2 GB
   HDD: 20 GB
-salt-minion：
-  CPU: 2 CORE
+  3 网络配置
+  HOSTNAME: salt-master
+  IPADDR: 192.168.1.109
+  NETMASK: 255.255.255.0
+  GATEWAY: 192.168.1.1
+  DNS1: 222.222.222.222
+  DNS2: 222.222.202.202
+salt-minion:
+  1 操作系统
+    1) OS release: rhel 7.0 x86_64
+    2) DATE&TIME: Asia/Shanghai
+    3) KEYBOARD: English(US)
+    4) LANGUAGE SUPPORT: English(United States)
+    5) SOFTWARE SELECTION:
+      -Server with GUI
+        -Hardware Monitoring Utilities
+        -JAVA Platform
+        -Performance Tools
+        -Remote Management for Linux
+        -Compatibility Libraries
+        -Development Tools
+  2 硬件配置
+  CPU: 1 CORE
   MEM: 2 GB
   HDD: 20 GB
+  3 网络配置
+  HOSTNAME: salt-minion
+  IPADDR: 192.168.1.110
+  NETMASK: 255.255.255.0
+  GATEWAY: 192.168.1.1
+  DNS1: 222.222.222.222
+  DNS2: 222.222.202.202
