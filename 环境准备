@@ -1,0 +1,11 @@
+1 操作系统
+rhel 7.0 x86_64
+2 硬件配置
+salt-master：
+  CPU: 2 CORE
+  MEM: 2 GB
+  HDD: 20 GB
+salt-minion：
+  CPU: 2 CORE
+  MEM: 2 GB
+  HDD: 20 GB
