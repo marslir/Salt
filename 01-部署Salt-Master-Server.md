@@ -180,26 +180,3 @@ systemctl enable httpd
 systemctl stop firewalld
 systemctl disable firewalld
 </pre>
-#salt-minion：
-##1 配置yum client
-###1) 清除原有配置
-<pre>
-cd /etc/yum.repos.d
-rm -rf *
-</pre>
-###2) vi http.repo内容如下
-<pre>
-[salt-minion]
-name=salt-minion
-baseurl=http://192.168.1.111/salt-minion
-enabled=1
-gpgcheck=0
-</pre>
-###3) 清除yum配置缓存并更新
-<pre>
-yum clean all<br>
-yum makecache<br>
-</pre>
-##2 安装salt-minion
-###1) 安装salt-minion
-<pre>yum install salt-minion</pre>
